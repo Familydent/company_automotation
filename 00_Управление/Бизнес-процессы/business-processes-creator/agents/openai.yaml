@@ -1,0 +1,7 @@
+interface:
+  display_name: "Business Processes Creator"
+  short_description: "Создание процессов для AI Booster"
+  default_prompt: "Используй $business-processes-creator, чтобы создать и детализировать бизнес-процессы компании."
+policy:
+  allow_implicit_invocation: true
+

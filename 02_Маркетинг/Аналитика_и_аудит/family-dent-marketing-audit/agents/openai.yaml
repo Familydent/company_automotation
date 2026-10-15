@@ -1,0 +1,4 @@
+interface:
+  display_name: "Family Dent Marketing Audit"
+  short_description: "Еженедельный аудит маркетинга Family Dent"
+  default_prompt: "Собери еженедельный маркетинговый отчёт Family Dent по локальным данным и публичным источникам."
