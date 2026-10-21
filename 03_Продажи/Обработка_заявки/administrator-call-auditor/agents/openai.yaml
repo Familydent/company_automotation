@@ -1,0 +1,4 @@
+interface:
+  display_name: "Administrator Call Auditor"
+  short_description: "Audit Family Dent calls and improve conversion"
+  default_prompt: "Use $administrator-call-auditor to audit this Family Dent call or dataset, score observable behaviors, identify evidence-based missed opportunities, and recommend one training priority."
