@@ -1,12 +1,12 @@
 # company_automotation
-Automotation of FD
 
-## Корпоративные скиллы
+Корпоративный репозиторий автоматизаций Family Dent.
 
-| Скилл | Каталог |
+Реестры автоматизаций и ответственность за них ведутся в README главных направлений:
+
+| Направление | Сводный реестр |
 |---|---|
-| business-processes-creator | 00_Управление/Бизнес-процессы/business-processes-creator |
-| family-dent-marketing-audit | 02_Маркетинг/Аналитика_и_аудит/family-dent-marketing-audit |
-| administrator-call-auditor | 03_Продажи/Обработка_заявки/administrator-call-auditor |
-
-При добавлении скилла обновляйте реестр в README соответствующего каталога.
+| Управление | [00_Управление](00_Управление/README.md) |
+| Маркетинг | [02_Маркетинг](02_Маркетинг/README.md) |
+| Продажи | [03_Продажи](03_Продажи/README.md) |
+| Финансы | [finance](finance/README.md) |
