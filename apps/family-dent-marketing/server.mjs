@@ -35,6 +35,7 @@ const fields={
  doctors:['name','specialty','branch_id','monthly_target','archived'],categories:['kind','name','archived'],
  directions:['name','short_name','color','description','archived'],branches:['name','archived'],
  campaigns:['title','direction_id','source_id','starts_on','ends_on','status'],metric_definitions:['direction_id','name','unit','archived'],
+ social_accounts:['direction_id','platform','handle','url','external_id','archived'],
  expenses:['title','amount','paid_on','direction_id','campaign_id','category_id','type'],comments:['content_id','plan_id','body']
 };
 const attempts=new Map();

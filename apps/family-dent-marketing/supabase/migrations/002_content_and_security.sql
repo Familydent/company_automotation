@@ -33,6 +33,16 @@ create trigger protect_task before update on public.tasks for each row execute f
 -- Approval must not be inherited if content is moved into another plan after queueing.
 -- Worker checks the current plan again immediately before sending.
 create index publications_queue on public.publications(scheduled_at) where status='queued';
+drop policy manager_write on public.social_accounts;
+create policy connection_admin_write on public.social_accounts for all to authenticated using(public.can_connect()) with check(public.can_connect());
+create function private.invalidate_connection() returns trigger language plpgsql security definer set search_path='' as $$ begin
+ if auth.role() is distinct from 'service_role' and new.external_id is distinct from old.external_id then
+  new.connection_status='not_connected';new.last_synced_at=null;
+  delete from private.social_credentials where account_id=new.id;
+ end if;
+ return new;
+end $$;
+create trigger invalidate_connection before update on public.social_accounts for each row execute function private.invalidate_connection();
 grant all on all tables in schema public to service_role;
 grant usage,select on all sequences in schema public to service_role;
 commit;
