@@ -1,0 +1,55 @@
+services:
+  - type: web
+    name: family-dent-marketing
+    rootDir: apps/family-dent-marketing
+    runtime: node
+    plan: starter
+    buildCommand: npm ci --ignore-scripts
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ALLOW_DEMO
+        value: "false"
+      - key: APP_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: META_APP_ID
+        sync: false
+      - key: META_APP_SECRET
+        sync: false
+      - key: META_GRAPH_VERSION
+        sync: false
+      - key: TOKEN_ENCRYPTION_KEY
+        sync: false
+      - key: META_PUBLISHING_ENABLED
+        value: "false"
+  - type: cron
+    name: family-dent-social-sync
+    rootDir: apps/family-dent-marketing
+    runtime: node
+    plan: starter
+    schedule: "*/5 * * * *"
+    buildCommand: npm ci --ignore-scripts
+    startCommand: npm run worker
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: META_APP_ID
+        sync: false
+      - key: META_APP_SECRET
+        sync: false
+      - key: META_GRAPH_VERSION
+        sync: false
+      - key: TOKEN_ENCRYPTION_KEY
+        sync: false
+      - key: META_PUBLISHING_ENABLED
+        value: "false"

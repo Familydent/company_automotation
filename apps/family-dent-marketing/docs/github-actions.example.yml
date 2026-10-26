@@ -1,0 +1,27 @@
+name: Family Dent Marketing
+on:
+  pull_request:
+    paths:
+      - 'apps/family-dent-marketing/**'
+      - '.github/workflows/family-dent-marketing.yml'
+  push:
+    paths:
+      - 'apps/family-dent-marketing/**'
+      - '.github/workflows/family-dent-marketing.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/family-dent-marketing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --ignore-scripts
+      - run: npm install --no-save --package-lock=false --ignore-scripts @electric-sql/pglite@0.5.11
+      - run: npm run check
+      - run: npm test
