@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+node_modules/
+artifacts/
+*.log
+*.png
+*.jpg
+!public/assets/*.png
+!public/assets/*.jpg
